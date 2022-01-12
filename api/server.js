@@ -3,14 +3,14 @@
 const express = require("express");
 const server = express();
 
-const postRouter = require("./posts/posts-router.js");
+const postsRouter = require("./posts/posts-router.js");
 
 server.use(express.json())
-server.use("/api/posts", postRouter)
+server.use("/api/posts", postsRouter)
 
-server.use("/",(req,res) => {
+server.use("*",(req,res) => {
     res.status(404).json({
-        message:"not found"
+        message:"Api is not found"
     })
 })
 
